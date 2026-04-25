@@ -15,6 +15,13 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
     const element = elementRef.current
     if (!element) return
 
+    // Check if IntersectionObserver is available
+    if (typeof IntersectionObserver === 'undefined') {
+      // Fallback for browsers that don't support IntersectionObserver
+      setIsVisible(true)
+      return
+    }
+
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -35,7 +42,9 @@ export function useScrollAnimation(options: ScrollAnimationOptions = {}) {
     observer.observe(element)
 
     return () => {
-      observer.unobserve(element)
+      if (element) {
+        observer.unobserve(element)
+      }
     }
   }, [threshold, rootMargin, triggerOnce])
 
