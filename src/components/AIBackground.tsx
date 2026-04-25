@@ -38,20 +38,20 @@ export function AIBackground() {
         this.connections = []
       }
 
-      update() {
-        this.x += this.vx
-        this.y += this.vy
-
-        // Bounce off edges
+      update(canvas: HTMLCanvasElement | null) {
+        if (!canvas) return
+        
+        // Boundary collision
         if (this.x < 0 || this.x > canvas.width) this.vx *= -1
         if (this.y < 0 || this.y > canvas.height) this.vy *= -1
-
+        
         // Keep within bounds
         this.x = Math.max(0, Math.min(canvas.width, this.x))
         this.y = Math.max(0, Math.min(canvas.height, this.y))
       }
 
-      draw() {
+      draw(ctx: CanvasRenderingContext2D | null) {
+        if (!ctx) return
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
         ctx.fillStyle = this.layer === 0 ? 'rgba(0, 245, 255, 0.6)' : 
@@ -95,7 +95,8 @@ export function AIBackground() {
         return true // Packet still traveling
       }
 
-      draw() {
+      draw(ctx: CanvasRenderingContext2D | null) {
+        if (!ctx) return
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
         ctx.fillStyle = `rgba(0, 245, 255, ${0.8 - this.progress * 0.5})`
@@ -121,7 +122,8 @@ export function AIBackground() {
         this.strength = Math.random() * 0.5 + 0.5
       }
 
-      draw() {
+      draw(ctx: CanvasRenderingContext2D | null) {
+        if (!ctx) return
         const distance = Math.sqrt(
           Math.pow(this.node2.x - this.node1.x, 2) + 
           Math.pow(this.node2.y - this.node1.y, 2)
@@ -151,9 +153,9 @@ export function AIBackground() {
       fadeDirection: number
       private readonly symbols: string[]
 
-      constructor() {
-        this.x = Math.random() * canvas.width
-        this.y = Math.random() * canvas.height
+      constructor(canvas: HTMLCanvasElement | null) {
+        this.x = canvas ? Math.random() * canvas.width : 0
+        this.y = canvas ? Math.random() * canvas.height : 0
         this.symbols = ['⚡', '🧠', '🔮', '💭', '⚛️', '🔬', '📊', '🤖', '🧬', '🔭']
         this.symbol = this.symbols[Math.floor(Math.random() * this.symbols.length)]
         this.size = Math.random() * 20 + 15
@@ -163,26 +165,30 @@ export function AIBackground() {
         this.fadeDirection = Math.random() > 0.5 ? 0.01 : -0.01
       }
 
-      update() {
+      update(canvas: HTMLCanvasElement | null) {
         this.rotation += this.rotationSpeed
         this.opacity += this.fadeDirection
 
-        if (this.opacity > 0.4 || this.opacity < 0.1) {
+        // Fade in/out effect
+        if (this.opacity > 0.3 || this.opacity < 0.1) {
           this.fadeDirection *= -1
         }
 
-        // Slowly drift
+        // Slow movement
         this.x += Math.sin(this.rotation) * 0.2
         this.y += Math.cos(this.rotation) * 0.1
 
         // Wrap around screen
-        if (this.x < -50) this.x = canvas.width + 50
-        if (this.x > canvas.width + 50) this.x = -50
-        if (this.y < -50) this.y = canvas.height + 50
-        if (this.y > canvas.height + 50) this.y = -50
+        if (canvas) {
+          if (this.x < -50) this.x = canvas.width + 50
+          if (this.x > canvas.width + 50) this.x = -50
+          if (this.y < -50) this.y = canvas.height + 50
+          if (this.y > canvas.height + 50) this.y = -50
+        }
       }
 
-      draw() {
+      draw(ctx: CanvasRenderingContext2D | null) {
+        if (!ctx) return
         ctx.save()
         ctx.translate(this.x, this.y)
         ctx.rotate(this.rotation)
@@ -227,7 +233,7 @@ export function AIBackground() {
     const aiSymbols: AISymbol[] = []
 
     for (let i = 0; i < 15; i++) {
-      aiSymbols.push(new AISymbol())
+      aiSymbols.push(new AISymbol(canvas))
     }
 
     // Animation loop
@@ -240,13 +246,13 @@ export function AIBackground() {
 
       // Update and draw connections
       nodes.forEach(node => {
-        node.connections.forEach(connection => connection.draw())
+        node.connections.forEach(connection => connection.draw(ctx))
       })
 
       // Update and draw nodes
       nodes.forEach(node => {
-        node.update()
-        node.draw()
+        node.update(canvas)
+        node.draw(ctx)
       })
 
       // Create new data packets periodically
@@ -270,14 +276,14 @@ export function AIBackground() {
         if (!dataPackets[i].update()) {
           dataPackets.splice(i, 1)
         } else {
-          dataPackets[i].draw()
+          dataPackets[i].draw(ctx)
         }
       }
 
       // Update and draw AI symbols
       aiSymbols.forEach(symbol => {
-        symbol.update()
-        symbol.draw()
+        symbol.update(canvas)
+        symbol.draw(ctx)
       })
 
       animationId = requestAnimationFrame(animate)

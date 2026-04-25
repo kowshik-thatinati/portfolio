@@ -24,7 +24,7 @@ export function Projects() {
     alt: string
     caption: string
   } | null>(null)
-  const { isMobile, isTablet } = useMobileDetection()
+  const { isMobile } = useMobileDetection()
 
   const filteredProjects =
     activeFilter === 'All' ? projects : projects.filter((p) => p.categories.includes(activeFilter))
@@ -68,7 +68,7 @@ export function Projects() {
           {/* Mobile: Expandable Cards */}
           {isMobile && (
             <div className="mt-10 space-y-6">
-              {filteredProjects.map((project, i) => (
+              {filteredProjects.map((project) => (
                 <ExpandableProjectCard 
                   key={`${activeFilter}-${project.id}`} 
                   project={project} 
