@@ -1,5 +1,5 @@
 import { About } from './components/About'
-import { AIBackground } from './components/AIBackground'
+// import { AIBackground } from './components/AIBackground'
 import { Challenges } from './components/Challenges'
 import { Certifications } from './components/Certifications'
 import { Contact } from './components/Contact'
@@ -9,15 +9,15 @@ import { GithubActivity } from './components/GithubActivity'
 import { Hero } from './components/Hero'
 import { Experience } from './components/Experience'
 import { Navbar } from './components/Navbar'
-import { PageReveal } from './components/PageReveal'
+// import { PageReveal } from './components/PageReveal'
 import { Projects } from './components/Projects'
 import { Skills } from './components/Skills'
 
 function App() {
   return (
     <div className="min-h-screen bg-app-bg text-text relative">
-      <AIBackground />
-      <PageReveal />
+      {/* <AIBackground /> */}
+      {/* <PageReveal /> */}
       <div className="relative z-10">
         <Navbar />
         <main>
