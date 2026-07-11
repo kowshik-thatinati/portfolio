@@ -27,7 +27,7 @@ export function ProjectCard({ project, onOpen }: ProjectCardProps) {
         <button
           type="button"
           onClick={() => onOpen(project)}
-          className="inline-flex items-center justify-center rounded-lg border border-accent/40 bg-accent/10 px-4 py-2 text-xs font-semibold text-accent transition hover:bg-accent/20 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          className="inline-flex items-center justify-center rounded-lg border border-accent/40 bg-accent/10 px-4 py-2 text-xs font-semibold text-accent transition hover:bg-accent/20 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-app-bg"
         >
           View details
         </button>

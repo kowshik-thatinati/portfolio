@@ -1,11 +1,7 @@
 import { About } from './components/About'
 import { AIBackground } from './components/AIBackground'
-import { Challenges } from './components/Challenges'
-import { Certifications } from './components/Certifications'
 import { Contact } from './components/Contact'
-import { CurrentWork } from './components/CurrentWork'
 import { Footer } from './components/Footer'
-import { GithubActivity } from './components/GithubActivity'
 import { Hero } from './components/Hero'
 import { Experience } from './components/Experience'
 import { Navbar } from './components/Navbar'
@@ -24,12 +20,8 @@ function App() {
           <Hero />
           <About />
           <Experience />
-          <Projects />
-          <CurrentWork />
-          <Challenges />
           <Skills />
-          <Certifications />
-          <GithubActivity />
+          <Projects />
           <Contact />
         </main>
         <Footer />

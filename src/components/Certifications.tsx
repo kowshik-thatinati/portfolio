@@ -41,23 +41,23 @@ export function Certifications() {
         <FadeIn>
           <div className="text-center">
             <p className="font-mono text-sm text-accent">Certifications</p>
-            <h2 className="mt-2 font-heading text-3xl font-bold gradient-text sm:text-4xl">Professional Certifications</h2>
+            <h2 className="mt-2 font-heading text-3xl font-bold gradient-text sm:text-4xl">Selected Certifications</h2>
             <p className="mt-4 max-w-2xl mx-auto text-text-muted">
-              Recognized achievements and certifications for AI/ML project implementations and technical expertise
+              A small set of project-backed certifications and proofs.
             </p>
           </div>
         </FadeIn>
 
-        <div className="mt-12 grid gap-8 md:grid-cols-2">
+        <div className="mt-12 grid gap-6 md:grid-cols-2">
           {certifications.map((cert, index) => (
             <FadeIn key={cert.id} delay={index * 200}>
-              <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-gradient-to-br from-app-elevated/60 to-app-elevated/30 p-8 transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1">
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-accent/5 to-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="group relative overflow-hidden rounded-xl border border-white/10 bg-linear-to-br from-app-elevated/60 to-app-elevated/30 p-6 transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1">
+                <div className="absolute inset-0 rounded-xl bg-linear-to-br from-accent/5 to-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 
                 <div className="relative">
-                  <div className="flex items-start justify-between mb-6">
+                  <div className="flex items-start justify-between mb-4 gap-4">
                     <div className="flex items-center gap-3">
-                      <div className="h-12 w-12 rounded-lg bg-gradient-to-br from-accent to-accent-purple flex items-center justify-center">
+                      <div className="h-10 w-10 rounded-full bg-linear-to-br from-accent to-accent-purple flex items-center justify-center">
                         <svg className="h-6 w-6 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                         </svg>
@@ -66,17 +66,13 @@ export function Certifications() {
                         <h3 className="font-heading text-lg font-semibold text-text group-hover:text-accent transition-colors">
                           {cert.title}
                         </h3>
-                        <p className="text-sm text-accent-purple font-medium">{cert.project}</p>
+                        <p className="text-sm text-text-muted font-medium">{cert.project}</p>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2 text-xs text-text-muted">
-                      <span>{cert.date}</span>
-                      <span>•</span>
-                      <span>{cert.issuer}</span>
-                    </div>
+                    <span className="rounded-full border border-white/10 bg-app-surface/50 px-3 py-1 text-xs text-text-muted">{cert.date}</span>
                   </div>
 
-                  <p className="text-sm text-text-muted leading-relaxed mb-6">
+                  <p className="text-sm text-text-muted leading-relaxed mb-5">
                     {cert.description}
                   </p>
 
@@ -92,10 +88,6 @@ export function Certifications() {
                       </svg>
                       View Certificate
                     </a>
-                    <div className="flex items-center gap-2 rounded-full border border-white/10 bg-app-surface/50 px-3 py-2">
-                      <div className="h-2 w-2 rounded-full bg-accent animate-pulse"></div>
-                      <span className="font-mono text-xs text-text-muted">Verified</span>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -107,7 +99,7 @@ export function Certifications() {
           <FadeIn>
             <div className="inline-flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2">
               <div className="h-2 w-2 rounded-full bg-accent animate-pulse"></div>
-              <span className="font-mono text-xs text-accent">Project-based certifications</span>
+              <span className="font-mono text-xs text-accent">Selected proofs only</span>
             </div>
           </FadeIn>
         </div>

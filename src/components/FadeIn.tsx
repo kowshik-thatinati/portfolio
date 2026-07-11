@@ -14,22 +14,24 @@ export function FadeIn({
   children, 
   delay = 0, 
   className = '', 
-  duration = 600,
+  duration = 750,
   direction = 'up',
   threshold = 0.1,
   ...props 
 }: FadeInProps) {
-  const { elementRef, isVisible } = useScrollAnimation({ threshold })
+  const { elementRef, isVisible } = useScrollAnimation({ threshold, triggerOnce: false })
 
   const animationStyles = {
-    transition: `all ${duration}ms cubic-bezier(0.22, 1, 0.36, 1)`,
+    transitionProperty: 'opacity, transform',
+    transitionDuration: `${duration}ms`,
+    transitionTimingFunction: 'cubic-bezier(0.22, 1, 0.36, 1)',
     transitionDelay: `${delay}ms`,
     opacity: isVisible ? 1 : 0,
     transform: isVisible ? 'translate(0, 0)' : 
-               direction === 'up' ? 'translateY(30px)' :
-               direction === 'down' ? 'translateY(-30px)' :
-               direction === 'left' ? 'translateX(30px)' :
-               'translateX(-30px)',
+               direction === 'up' ? 'translateY(42px)' :
+               direction === 'down' ? 'translateY(-42px)' :
+               direction === 'left' ? 'translateX(42px)' :
+               'translateX(-42px)',
   }
 
   return (

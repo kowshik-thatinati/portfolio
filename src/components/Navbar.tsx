@@ -8,11 +8,11 @@ const links = [
 
 export function Navbar() {
   return (
-    <header className="sticky top-0 z-50 border-b border-white/5 bg-app-bg/80 backdrop-blur-md">
+    <header className="sticky top-0 z-50 border-b border-slate-200/90 bg-white/95 backdrop-blur-xl">
       <nav className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-4 sm:px-6 lg:px-8">
         <a
           href="#home"
-          className="font-heading text-sm font-semibold tracking-tight text-text transition-colors hover:text-accent"
+          className="font-heading text-sm font-semibold tracking-tight text-slate-950 transition-colors hover:text-accent"
         >
           KT<span className="text-accent">.</span>
         </a>
@@ -21,7 +21,7 @@ export function Navbar() {
             <li key={href}>
               <a
                 href={href}
-                className="rounded-md px-2 py-1.5 text-sm text-text-muted transition-colors hover:bg-white/5 hover:text-text sm:px-3"
+                className="rounded-full px-3 py-2 text-sm font-medium text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-950 sm:px-4"
               >
                 {label}
               </a>

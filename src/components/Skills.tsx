@@ -17,8 +17,8 @@ export function Skills() {
         <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-5 xl:grid-cols-5">
           {skillCategories.map((cat, i) => (
             <FadeIn key={cat.name} className={i === 3 || i === 4 ? 'lg:mt-4' : ''}>
-              <div className="group relative rounded-xl border border-white/10 bg-gradient-to-br from-app-elevated/60 to-app-elevated/30 p-6 transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1">
-                <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-accent/5 to-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="group relative rounded-xl border border-white/10 bg-linear-to-br from-app-elevated/60 to-app-elevated/30 p-6 transition-all duration-300 hover:border-accent/30 hover:shadow-lg hover:shadow-accent/10 hover:-translate-y-1">
+                <div className="absolute inset-0 rounded-xl bg-linear-to-br from-accent/5 to-accent-purple/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 <div className="relative">
                   <div className="flex items-center gap-2 mb-4">
                     <div className={`h-2 w-2 rounded-full ${

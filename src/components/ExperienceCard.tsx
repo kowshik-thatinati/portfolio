@@ -10,7 +10,7 @@ export function ExperienceCard({ experience, onOpen }: ExperienceCardProps) {
     <button
       type="button"
       onClick={() => onOpen(experience)}
-      className="group flex w-full min-h-[280px] flex-col justify-between rounded-xl border border-white/10 bg-app-surface/80 p-7 text-left shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-[0_0_32px_rgba(0,245,255,0.12)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent sm:min-h-[300px] sm:p-8"
+      className="group flex w-full min-h-[280px] flex-col justify-between rounded-xl border border-white/10 bg-app-surface/80 p-7 text-left shadow-lg transition-all duration-300 hover:-translate-y-1 hover:border-accent/50 hover:shadow-[0_0_32px_rgba(37,99,235,0.12)] focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-app-bg sm:min-h-[300px] sm:p-8"
     >
       <div className="mb-3 flex flex-wrap items-center gap-2">
         <span className="rounded-full border border-accent/30 bg-accent/10 px-2.5 py-0.5 font-mono text-[11px] font-medium text-accent">

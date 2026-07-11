@@ -36,8 +36,8 @@ export function Projects() {
       <section id="projects" className="px-4 py-20 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-7xl">
           <FadeIn>
-            <p className="font-mono text-sm text-accent">Projects</p>
-            <h2 className="mt-2 font-heading text-3xl font-bold text-text sm:text-4xl lg:text-5xl">Engineering case studies</h2>
+            <p className="font-mono text-sm text-accent">Things I&apos;ve worked on</p>
+            <h2 className="mt-2 font-heading text-3xl font-bold text-text sm:text-4xl lg:text-5xl">Projects</h2>
             <p className="mt-4 max-w-2xl text-text-muted text-base sm:text-lg">
               Product-style project showcases focused on problem framing, system architecture, and technical execution.
             </p>

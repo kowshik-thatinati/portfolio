@@ -9,19 +9,15 @@ export function About() {
             <p className="font-mono text-sm text-accent">About</p>
             <h2 className="mt-2 font-heading text-3xl font-bold text-text sm:text-4xl">AI/ML Engineering Student</h2>
           </div>
-          <div className="mt-8 mx-auto max-w-4xl space-y-6 text-base leading-relaxed text-text-muted">
+          <div className="mt-8 mx-auto max-w-4xl text-base leading-relaxed text-text-muted">
             <p className="text-lg">
-              AI/ML-focused engineering student with hands-on experience in <span className="text-accent font-medium">computer vision</span>, <span className="text-accent-purple font-medium">adversarial attacks</span>, and
-              <span className="text-accent font-medium"> distributed learning systems</span>. I build end-to-end AI pipelines that connect deep learning models
-              to real-world applications—from robustness testing on detectors to full-stack RAG services.
-            </p>
-            <p className="text-lg">
-              Passionate about understanding how models fail under stress, optimizing data flow in federated settings, and
-              creating production-ready interfaces that make cutting-edge research accessible and practical.
+              AI/ML-focused engineering student with hands-on experience in <span className="text-accent font-medium">computer vision</span>, <span className="text-accent-purple font-medium">adversarial attacks</span>, and{' '}
+              <span className="text-accent font-medium">distributed learning systems</span>. I build production-minded AI
+              pipelines that connect research, reliable deployment, and clean user experience.
             </p>
           </div>
           <div className="mt-12 grid gap-8 lg:grid-cols-2">
-            <div className="rounded-xl border border-white/10 bg-gradient-to-br from-app-surface/50 to-app-surface/30 p-8 backdrop-blur-sm">
+            <div className="rounded-xl border border-white/10 bg-linear-to-br from-app-surface/50 to-app-surface/30 p-8 backdrop-blur-sm">
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-8 w-8 rounded-lg bg-accent/20 flex items-center justify-center">
                   <svg className="h-4 w-4 text-accent" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -38,9 +34,6 @@ export function About() {
                   <div>
                     <span className="font-semibold text-text">Keshav Memorial College of Engineering</span>
                     <p className="text-sm text-text-muted mt-1">B.Tech Computer Science & Engineering · 2023 – Present</p>
-                    <div className="mt-2 inline-flex items-center gap-1 rounded-full bg-accent/10 px-2 py-1">
-                      <span className="font-mono text-xs text-accent font-medium">GPA 7.2</span>
-                    </div>
                   </div>
                 </div>
                 <div className="relative pl-6">
@@ -65,7 +58,7 @@ export function About() {
                 </div>
               </div>
             </div>
-            <div className="rounded-xl border border-white/10 bg-gradient-to-br from-app-surface/50 to-app-surface/30 p-8 backdrop-blur-sm">
+            <div className="rounded-xl border border-white/10 bg-linear-to-br from-app-surface/50 to-app-surface/30 p-8 backdrop-blur-sm">
               <div className="flex items-center gap-3 mb-6">
                 <div className="h-8 w-8 rounded-lg bg-accent-purple/20 flex items-center justify-center">
                   <svg className="h-4 w-4 text-accent-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -102,9 +95,9 @@ export function About() {
               </div>
             </div>
           </div>
-          <div className="mt-12 rounded-xl border border-white/10 bg-gradient-to-br from-app-elevated/40 to-app-elevated/20 p-8 backdrop-blur-sm">
+          <div className="mt-12 rounded-xl border border-white/10 bg-linear-to-br from-app-elevated/40 to-app-elevated/20 p-8 backdrop-blur-sm">
             <div className="flex items-center gap-3 mb-6">
-              <div className="h-8 w-8 rounded-lg bg-gradient-to-br from-accent to-accent-purple flex items-center justify-center">
+              <div className="h-8 w-8 rounded-lg bg-linear-to-br from-accent to-accent-purple flex items-center justify-center">
                 <svg className="h-4 w-4 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
                 </svg>

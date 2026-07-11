@@ -54,58 +54,9 @@ export function AIBackground() {
         if (!ctx) return
         ctx.beginPath()
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2)
-        ctx.fillStyle = this.layer === 0 ? 'rgba(0, 245, 255, 0.6)' : 
-                       this.layer === 1 ? 'rgba(124, 58, 237, 0.6)' : 
-                       'rgba(0, 245, 255, 0.4)'
-        ctx.fill()
-      }
-    }
-
-    // Data packets
-    class DataPacket {
-      x: number
-      y: number
-      targetX: number
-      targetY: number
-      progress: number
-      speed: number
-      size: number
-
-      constructor(startX: number, startY: number, endX: number, endY: number) {
-        this.x = startX
-        this.y = startY
-        this.targetX = endX
-        this.targetY = endY
-        this.progress = 0
-        this.speed = Math.random() * 0.02 + 0.01
-        this.size = Math.random() * 3 + 2
-      }
-
-      update() {
-        this.progress += this.speed
-        if (this.progress >= 1) {
-          return false // Packet reached destination
-        }
-
-        // Smooth interpolation
-        const t = this.progress
-        this.x = this.x + (this.targetX - this.x) * t * 0.1
-        this.y = this.y + (this.targetY - this.y) * t * 0.1
-
-        return true // Packet still traveling
-      }
-
-      draw(ctx: CanvasRenderingContext2D | null) {
-        if (!ctx) return
-        ctx.beginPath()
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(0, 245, 255, ${0.8 - this.progress * 0.5})`
-        ctx.fill()
-
-        // Glow effect
-        ctx.beginPath()
-        ctx.arc(this.x, this.y, this.size * 2, 0, Math.PI * 2)
-        ctx.fillStyle = `rgba(0, 245, 255, ${0.2 - this.progress * 0.15})`
+        ctx.fillStyle = this.layer === 0 ? 'rgba(148, 163, 184, 0.38)' :
+                       this.layer === 1 ? 'rgba(100, 116, 139, 0.3)' :
+                       'rgba(79, 70, 229, 0.24)'
         ctx.fill()
       }
     }
@@ -134,70 +85,10 @@ export function AIBackground() {
           ctx.beginPath()
           ctx.moveTo(this.node1.x, this.node1.y)
           ctx.lineTo(this.node2.x, this.node2.y)
-          ctx.strokeStyle = `rgba(0, 245, 255, ${opacity})`
+          ctx.strokeStyle = `rgba(148, 163, 184, ${opacity})`
           ctx.lineWidth = 0.5
           ctx.stroke()
         }
-      }
-    }
-
-    // AI symbols floating in background
-    class AISymbol {
-      x: number
-      y: number
-      symbol: string
-      size: number
-      rotation: number
-      rotationSpeed: number
-      opacity: number
-      fadeDirection: number
-      private readonly symbols: string[]
-
-      constructor(canvas: HTMLCanvasElement | null) {
-        this.x = canvas ? Math.random() * canvas.width : 0
-        this.y = canvas ? Math.random() * canvas.height : 0
-        this.symbols = ['⚡', '🧠', '🔮', '💭', '⚛️', '🔬', '📊', '🤖', '🧬', '🔭']
-        this.symbol = this.symbols[Math.floor(Math.random() * this.symbols.length)]
-        this.size = Math.random() * 20 + 15
-        this.rotation = Math.random() * Math.PI * 2
-        this.rotationSpeed = (Math.random() - 0.5) * 0.02
-        this.opacity = Math.random() * 0.3 + 0.1
-        this.fadeDirection = Math.random() > 0.5 ? 0.01 : -0.01
-      }
-
-      update(canvas: HTMLCanvasElement | null) {
-        this.rotation += this.rotationSpeed
-        this.opacity += this.fadeDirection
-
-        // Fade in/out effect
-        if (this.opacity > 0.3 || this.opacity < 0.1) {
-          this.fadeDirection *= -1
-        }
-
-        // Slow movement
-        this.x += Math.sin(this.rotation) * 0.2
-        this.y += Math.cos(this.rotation) * 0.1
-
-        // Wrap around screen
-        if (canvas) {
-          if (this.x < -50) this.x = canvas.width + 50
-          if (this.x > canvas.width + 50) this.x = -50
-          if (this.y < -50) this.y = canvas.height + 50
-          if (this.y > canvas.height + 50) this.y = -50
-        }
-      }
-
-      draw(ctx: CanvasRenderingContext2D | null) {
-        if (!ctx) return
-        ctx.save()
-        ctx.translate(this.x, this.y)
-        ctx.rotate(this.rotation)
-        ctx.font = `${this.size}px Arial`
-        ctx.fillStyle = `rgba(124, 58, 237, ${this.opacity})`
-        ctx.textAlign = 'center'
-        ctx.textBaseline = 'middle'
-        ctx.fillText(this.symbol, 0, 0)
-        ctx.restore()
       }
     }
 
@@ -228,20 +119,8 @@ export function AIBackground() {
       })
     }
 
-    // Initialize data packets and AI symbols
-    const dataPackets: DataPacket[] = []
-    const aiSymbols: AISymbol[] = []
-
-    for (let i = 0; i < 15; i++) {
-      aiSymbols.push(new AISymbol(canvas))
-    }
-
-    // Animation loop
-    let animationId: number
-    let packetTimer = 0
-
-    const animate = () => {
-      ctx.fillStyle = 'rgba(11, 15, 25, 0.1)' // Semi-transparent background for trail effect
+    const drawScene = () => {
+      ctx.fillStyle = 'rgba(248, 250, 252, 0.14)' // Soft trail on light canvas
       ctx.fillRect(0, 0, canvas.width, canvas.height)
 
       // Update and draw connections
@@ -251,48 +130,13 @@ export function AIBackground() {
 
       // Update and draw nodes
       nodes.forEach(node => {
-        node.update(canvas)
         node.draw(ctx)
       })
-
-      // Create new data packets periodically
-      packetTimer++
-      if (packetTimer > 60) { // Every 60 frames
-        const fromLayer = Math.floor(Math.random() * (layers - 1))
-        const toLayer = fromLayer + 1
-        const fromNodes = nodes.filter(n => n.layer === fromLayer)
-        const toNodes = nodes.filter(n => n.layer === toLayer)
-
-        if (fromNodes.length > 0 && toNodes.length > 0) {
-          const fromNode = fromNodes[Math.floor(Math.random() * fromNodes.length)]
-          const toNode = toNodes[Math.floor(Math.random() * toNodes.length)]
-          dataPackets.push(new DataPacket(fromNode.x, fromNode.y, toNode.x, toNode.y))
-        }
-        packetTimer = 0
-      }
-
-      // Update and draw data packets
-      for (let i = dataPackets.length - 1; i >= 0; i--) {
-        if (!dataPackets[i].update()) {
-          dataPackets.splice(i, 1)
-        } else {
-          dataPackets[i].draw(ctx)
-        }
-      }
-
-      // Update and draw AI symbols
-      aiSymbols.forEach(symbol => {
-        symbol.update(canvas)
-        symbol.draw(ctx)
-      })
-
-      animationId = requestAnimationFrame(animate)
     }
 
-    animate()
+    drawScene()
 
     return () => {
-      cancelAnimationFrame(animationId)
       window.removeEventListener('resize', resizeCanvas)
     }
   }, [])
@@ -300,7 +144,7 @@ export function AIBackground() {
   return (
     <canvas
       ref={canvasRef}
-      className="fixed inset-0 pointer-events-none opacity-50"
+      className="fixed inset-0 pointer-events-none opacity-30"
       style={{ zIndex: 1 }}
     />
   )

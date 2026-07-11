@@ -1,68 +1,77 @@
-import { contact } from '../data/content'
-
 export function Hero() {
   return (
     <section
       id="home"
-      className="relative overflow-hidden border-b border-white/5 px-4 py-24 sm:px-6 sm:py-28 lg:px-8"
+      className="relative overflow-hidden border-b border-slate-200 px-4 py-20 sm:px-6 sm:py-24 lg:px-8"
     >
       <div
-        className="pointer-events-none absolute -right-24 top-0 h-96 w-96 rounded-full bg-accent-purple/20 blur-[120px]"
+        className="pointer-events-none absolute -right-24 top-0 h-96 w-96 rounded-full bg-indigo-200/40 blur-[120px]"
         aria-hidden
       />
       <div
-        className="pointer-events-none absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-accent/10 blur-[100px]"
+        className="pointer-events-none absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-blue-200/40 blur-[100px]"
         aria-hidden
       />
-      <div className="relative mx-auto max-w-7xl">
-        <div className="flex flex-col items-center text-center">
-          <div className="mb-6 flex items-center gap-2 rounded-full border border-accent/30 bg-accent/10 px-4 py-2">
+      <div className="relative mx-auto grid max-w-7xl gap-10 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+        <div className="space-y-8 text-center lg:text-left">
+          <div className="inline-flex items-center gap-2 rounded-full border border-blue-200 bg-white/80 px-4 py-2 shadow-sm backdrop-blur">
             <div className="h-2 w-2 rounded-full bg-accent animate-pulse"></div>
             <p className="font-mono text-sm text-accent">B.Tech CSE · AI/ML & systems</p>
           </div>
-          <h1 className="font-heading text-4xl font-bold tracking-tight text-text sm:text-5xl lg:text-6xl">
-            Kowshik Thatinati
-          </h1>
-          <div className="mt-4 flex items-center gap-3">
-            <span className="h-px bg-gradient-to-r from-transparent to-accent w-8"></span>
-            <p className="max-w-2xl text-lg font-medium text-text-muted sm:text-xl">
+          <div className="space-y-4">
+            <h1 className="font-heading text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl lg:text-6xl">
+              Kowshik Thatinati
+            </h1>
+            <p className="max-w-2xl text-lg font-medium text-slate-600 sm:text-xl lg:mx-0">
               AI/ML Engineer <span className="text-accent">|</span> Full Stack Developer
             </p>
-            <span className="h-px bg-gradient-to-l from-transparent to-accent w-8"></span>
-          </div>
-          <p className="mt-6 max-w-3xl text-lg leading-relaxed text-text-muted">
-            Building end-to-end AI pipelines—from adversarial robustness and federated learning to RAG systems and
-            deployable demos. Specializing in computer vision, distributed learning, and production-grade ML systems.
-          </p>
-          <div className="mt-8 flex flex-wrap gap-3">
-            <div className="flex items-center gap-2 rounded-full border border-white/10 bg-app-surface/50 px-3 py-1">
-              <div className="h-1.5 w-1.5 rounded-full bg-accent-purple"></div>
-              <span className="font-mono text-xs text-text-muted">Computer Vision</span>
-            </div>
-            <div className="flex items-center gap-2 rounded-full border border-white/10 bg-app-surface/50 px-3 py-1">
-              <div className="h-1.5 w-1.5 rounded-full bg-accent"></div>
-              <span className="font-mono text-xs text-text-muted">Federated Learning</span>
-            </div>
-            <div className="flex items-center gap-2 rounded-full border border-white/10 bg-app-surface/50 px-3 py-1">
-              <div className="h-1.5 w-1.5 rounded-full bg-accent-purple"></div>
-              <span className="font-mono text-xs text-text-muted">Adversarial ML</span>
+            <p className="max-w-3xl text-lg leading-relaxed text-text-muted">
+              I build practical AI products and data-driven systems that are clean, measurable, and ready to ship.
+            </p>
+            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-emerald-50 px-4 py-2 text-sm font-medium text-emerald-700 shadow-sm">
+              <span className="h-2 w-2 rounded-full bg-emerald-500" />
+              Open to work and internship opportunities
             </div>
           </div>
-          <div className="mt-10 flex flex-wrap gap-4">
+
+          <div className="flex flex-wrap justify-center gap-3 lg:justify-start">
+            {['Computer Vision', 'Spring Boot', 'RAG Systems'].map((tag, index) => (
+              <div
+                key={tag}
+                className="flex items-center gap-2 rounded-full border border-slate-200 bg-white px-3 py-1.5 shadow-sm"
+              >
+                <div className={`h-1.5 w-1.5 rounded-full ${index % 2 === 0 ? 'bg-accent' : 'bg-accent-purple'}`} />
+                <span className="font-mono text-xs text-slate-600">{tag}</span>
+              </div>
+            ))}
+          </div>
+
+          <div className="flex flex-wrap justify-center gap-4 lg:justify-start">
             <a
               href="#projects"
-              className="inline-flex items-center justify-center rounded-lg bg-accent px-8 py-3.5 text-sm font-semibold text-app-bg shadow-[0_0_24px_rgba(0,245,255,0.25)] transition-all hover:-translate-y-0.5 hover:shadow-[0_0_32px_rgba(0,245,255,0.35)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              className="inline-flex items-center justify-center rounded-xl bg-accent px-8 py-3.5 text-sm font-semibold text-white shadow-[0_10px_30px_rgba(37,99,235,0.22)] transition-all hover:-translate-y-0.5 hover:bg-blue-700 focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 focus-visible:ring-offset-app-bg"
             >
               View Projects
             </a>
-            <a
-              href={contact.github}
-              target="_blank"
-              rel="noreferrer noopener"
-              className="inline-flex items-center justify-center rounded-lg border border-white/15 bg-white/5 px-8 py-3.5 text-sm font-semibold text-text transition-all hover:border-accent/40 hover:text-accent focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
-            >
-              GitHub
-            </a>
+          </div>
+        </div>
+
+        <div className="relative mx-auto w-full max-w-[15rem] lg:max-w-[15rem]">
+          <div className="absolute -inset-2 rounded-3xl bg-linear-to-br from-blue-200/50 via-white to-indigo-200/60 blur-2xl" />
+          <div className="relative overflow-hidden rounded-3xl border border-slate-200 bg-white p-2.5 shadow-[0_16px_40px_rgba(15,23,42,0.10)]">
+            <div className="overflow-hidden rounded-2xl border border-slate-200 bg-slate-50">
+              <img
+                src="/pics/profile.jpg"
+                alt="Kowshik Thatinati profile photo"
+                className="w-full object-contain"
+              />
+            </div>
+            <div className="mt-3 px-1 pb-1 text-center">
+              <div>
+                <p className="font-heading text-base font-semibold text-slate-950">Kowshik Thatinati</p>
+                <p className="text-sm text-slate-500">AI/ML Engineer · Full Stack Developer</p>
+              </div>
+            </div>
           </div>
         </div>
       </div>
