@@ -1,6 +1,24 @@
 import { FadeIn } from './FadeIn'
 
 export function About() {
+  const internshipPhases = [
+    {
+      label: 'Phase 1',
+      labelClass: 'text-accent',
+      cardClass: 'border-accent bg-accent/5',
+      description: 'FGSM adversarial attacks on YOLOv5 & Faster R-CNN; robustness analysis on confidence and accuracy.',
+      date: 'May 2025 – Aug 2025',
+    },
+    {
+      label: 'Phase 2',
+      labelClass: 'text-accent-purple',
+      cardClass: 'border-accent-purple bg-accent-purple/5',
+      description:
+        'Federated learning pipeline for YOLO detection, non-IID clients, FedAvg secure aggregation, communication-efficient training loop.',
+      date: 'Dec 2025 – Jun 2026',
+    },
+  ]
+
   return (
     <section id="about" className="border-b border-white/5 px-4 py-20 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
@@ -67,7 +85,7 @@ export function About() {
                 </div>
                 <h3 className="font-heading text-lg font-bold uppercase tracking-wide text-accent-purple">Experience</h3>
               </div>
-              <div className="space-y-6">
+              <div className="space-y-4">
                 <div>
                   <div className="flex items-center gap-2 mb-2">
                     <span className="font-semibold text-text">AI/ML Intern</span>
@@ -76,20 +94,18 @@ export function About() {
                   </div>
                   <p className="text-sm text-text-muted mb-3">Under Dr. Chalavadi Vishnu</p>
                   <div className="space-y-4">
-                    <div className="rounded-lg border-l-2 border-accent bg-accent/5 pl-4 py-2">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="font-mono text-xs text-accent font-semibold">Phase 1</span>
-                        <span className="text-xs text-text-muted">May – Jul 2025</span>
+                    {internshipPhases.map((phase) => (
+                      <div
+                        key={phase.label}
+                        className={`rounded-lg border-l-2 ${phase.cardClass} pl-4 py-2`}
+                      >
+                        <div className="flex flex-wrap items-center gap-2 mb-1">
+                          <span className={`font-mono text-xs font-semibold ${phase.labelClass}`}>{phase.label}</span>
+                          <span className="text-xs text-text-muted">{phase.date}</span>
+                        </div>
+                        <p className="text-sm text-text-muted">{phase.description}</p>
                       </div>
-                      <p className="text-sm text-text-muted">FGSM adversarial attacks on YOLOv5 & Faster R-CNN; robustness analysis on confidence and accuracy.</p>
-                    </div>
-                    <div className="rounded-lg border-l-2 border-accent-purple bg-accent-purple/5 pl-4 py-2">
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="font-mono text-xs text-accent-purple font-semibold">Phase 2</span>
-                        <span className="text-xs text-text-muted">Feb – May 2026</span>
-                      </div>
-                      <p className="text-sm text-text-muted">Federated learning pipeline for YOLO detection, non-IID clients, FedAvg secure aggregation, communication-efficient training loop.</p>
-                    </div>
+                    ))}
                   </div>
                 </div>
               </div>
@@ -107,7 +123,7 @@ export function About() {
             <div className="grid gap-4 sm:grid-cols-2">
               <div className="group rounded-lg border border-white/5 bg-app-surface/30 p-4 transition-all hover:border-accent/30 hover:bg-accent/5">
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 h-2 w-2 rounded-full bg-accent flex-shrink-0"></div>
+                  <div className="mt-1 h-2 w-2 rounded-full bg-accent shrink-0"></div>
                   <div>
                     <p className="text-sm font-medium text-text group-hover:text-accent transition-colors">Google Agentic Hackathon</p>
                     <p className="text-xs text-text-muted mt-1">Focused on agent-driven AI solutions and autonomous systems</p>
@@ -116,7 +132,7 @@ export function About() {
               </div>
               <div className="group rounded-lg border border-white/5 bg-app-surface/30 p-4 transition-all hover:border-accent-purple/30 hover:bg-accent-purple/5">
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 h-2 w-2 rounded-full bg-accent-purple flex-shrink-0"></div>
+                  <div className="mt-1 h-2 w-2 rounded-full bg-accent-purple shrink-0"></div>
                   <div>
                     <p className="text-sm font-medium text-text group-hover:text-accent-purple transition-colors">NGIT Hackathon</p>
                     <p className="text-xs text-text-muted mt-1">Ranked 10th out of 200 participants in competitive coding</p>
@@ -125,7 +141,7 @@ export function About() {
               </div>
               <div className="group rounded-lg border border-white/5 bg-app-surface/30 p-4 transition-all hover:border-accent/30 hover:bg-accent/5">
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 h-2 w-2 rounded-full bg-accent flex-shrink-0"></div>
+                  <div className="mt-1 h-2 w-2 rounded-full bg-accent shrink-0"></div>
                   <div>
                     <p className="text-sm font-medium text-text group-hover:text-accent transition-colors">FOSSEE Program</p>
                     <p className="text-xs text-text-muted mt-1">Open-source web contributions at IIT Bombay</p>
@@ -134,7 +150,7 @@ export function About() {
               </div>
               <div className="group rounded-lg border border-white/5 bg-app-surface/30 p-4 transition-all hover:border-accent-purple/30 hover:bg-accent-purple/5">
                 <div className="flex items-start gap-3">
-                  <div className="mt-1 h-2 w-2 rounded-full bg-accent-purple flex-shrink-0"></div>
+                  <div className="mt-1 h-2 w-2 rounded-full bg-accent-purple shrink-0"></div>
                   <div>
                     <p className="text-sm font-medium text-text group-hover:text-accent-purple transition-colors">Leadership</p>
                     <p className="text-xs text-text-muted mt-1">Head of Arts Club at KMCE, overseeing team coordination</p>

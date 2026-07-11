@@ -246,7 +246,7 @@ export const experiences: Experience[] = [
     id: 'internship-phase-1',
     phaseLabel: 'PHASE 1',
     title: 'Adversarial Attacks on ML Models',
-    duration: 'Internship Phase 1',
+    duration: 'May 2025 – Aug 2025',
     summary:
       'Built a robustness testing pipeline for YOLOv5 using FGSM to quantify confidence collapse and missed detections under small perturbations.',
     problem:
@@ -286,7 +286,7 @@ export const experiences: Experience[] = [
     id: 'internship-phase-2',
     phaseLabel: 'PHASE 2',
     title: 'Federated Object Detection',
-    duration: 'Feb 2026 – May 2026',
+    duration: 'Dec 2025 – Jun 2026',
     summary:
       'Built a federated learning simulation for object detection with client splits and FedAvg aggregation to train without centralizing raw data.',
     problem:
@@ -389,7 +389,6 @@ export const skillCategories = [
 
 export const contact = {
   email: 'kowshikthatinati559@gmail.com',
-  phone: '+91 7569746287',
   github: 'https://github.com/kowshik-thatinati',
   linkedin: 'https://www.linkedin.com/in/kowshik-thatinati',
   githubLabel: 'github.com/kowshik-thatinati',

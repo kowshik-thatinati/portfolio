@@ -13,20 +13,13 @@ export function Contact() {
           </p>
         </FadeIn>
         <FadeIn className="mt-10">
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             <a
               href={`mailto:${contact.email}`}
               className="group rounded-xl border border-white/10 bg-app-surface/60 p-6 transition hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_0_24px_rgba(0,245,255,0.1)]"
             >
               <p className="font-mono text-xs uppercase tracking-wider text-accent">Email</p>
               <p className="mt-2 break-all text-sm text-text transition group-hover:text-accent">{contact.email}</p>
-            </a>
-            <a
-              href={`tel:${contact.phone.replace(/\s/g, '')}`}
-              className="group rounded-xl border border-white/10 bg-app-surface/60 p-6 transition hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-[0_0_24px_rgba(0,245,255,0.1)]"
-            >
-              <p className="font-mono text-xs uppercase tracking-wider text-accent">Phone</p>
-              <p className="mt-2 text-sm text-text transition group-hover:text-accent">{contact.phone}</p>
             </a>
             <a
               href={contact.github}
